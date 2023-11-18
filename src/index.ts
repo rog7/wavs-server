@@ -7,11 +7,15 @@ import helmet from "helmet";
 
 const app = express();
 
-app.use(helmet())
+app.use(helmet({
+  hidePoweredBy: true,
+}))
 
 app.use(
   cors({
-    exposedHeaders: ["Authorization", "Refresh-Token"],
+    origin: "https://usewavs.com",
+    exposedHeaders: ["Authorization"],
+    
   })
 );
 
