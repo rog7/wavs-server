@@ -7,10 +7,6 @@ import helmet from "helmet";
 
 const app = express();
 
-app.use(helmet({
-  hidePoweredBy: true,
-}))
-
 app.use(
   cors({
     origin: "https://usewavs.com",
@@ -21,8 +17,12 @@ app.use(
 
 app.use(compression());
 
+app.use(helmet({
+  hidePoweredBy: true,
+}))
 // Attach the supabase instance to all routes
 app.use(attachSupabase);
+
 initializeRoutes(app, express);
 
 const port = process.env.PORT || 9000;
