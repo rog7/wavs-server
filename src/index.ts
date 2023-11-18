@@ -6,13 +6,15 @@ import initializeRoutes from "./startup/routes";
 import helmet from "helmet";
 
 const app = express();
+
+app.use(helmet())
+
 app.use(
   cors({
     exposedHeaders: ["Authorization", "Refresh-Token"],
   })
 );
 
-app.use(helmet())
 app.use(compression());
 
 // Attach the supabase instance to all routes
