@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://usewavs.com",
+origin: process.env.NODE_ENV === "development" ? "*" : "https://usewavs.com",
     exposedHeaders: ["Authorization"],
     
   })

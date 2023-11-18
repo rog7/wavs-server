@@ -3,8 +3,6 @@ import { priceId, stripeSecretKey } from "./StripeValues";
 const stripe = require("stripe")(stripeSecretKey);
 
 export const userHasActiveSubscription = async (email: string) => {
-  console.log("key: ", stripe)
-  console.log("email: ", email)
   try {
     const subscriptions = await stripe.subscriptions.list({
       price: priceId,
