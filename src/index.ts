@@ -7,6 +7,7 @@ import initializeRoutes from "./startup/routes";
 const app = express();
 app.use(
   cors({
+    origin: "https://usewavs.com",
     exposedHeaders: ["Authorization", "Refresh-Token"],
   })
 );
