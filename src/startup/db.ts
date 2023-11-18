@@ -1,5 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
-import { SUPABASE_ANON_KEY, SUPABASE_URL } from "../globalVars";
+import { SUPABASE_URL, SUPABASE_KEY} from "../globalVars";
 
 // Create a single supabase client for interacting with your database
-export const supabase = createClient(SUPABASE_URL as string, SUPABASE_ANON_KEY as string);
+console.log("url: " + SUPABASE_URL)
+console.log("key: " + SUPABASE_KEY)
+export const supabase = createClient(SUPABASE_URL as string, SUPABASE_KEY as string);
