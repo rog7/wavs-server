@@ -3,18 +3,20 @@ import cors from "cors";
 import compression from "compression";
 import { attachSupabase } from "./middleware/supabase";
 import initializeRoutes from "./startup/routes";
+import helmet from "helmet";
 
 const app = express();
 app.use(
   cors({
-    origin: "https://usewavs.com",
     exposedHeaders: ["Authorization", "Refresh-Token"],
   })
 );
 
+app.use(helmet())
+app.use(compression());
+
 // Attach the supabase instance to all routes
 app.use(attachSupabase);
-app.use(compression());
 initializeRoutes(app, express);
 
 const port = process.env.PORT || 9000;
