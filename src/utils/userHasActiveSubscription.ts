@@ -9,7 +9,6 @@ export const userHasActiveSubscription = async (email: string) => {
       status: "active", // Only active subscriptions
     });
 
-    console.log("subscriptions: ", subscriptions)
     const emailList = [];
 
     for (const subscription of subscriptions.data) {
@@ -17,7 +16,7 @@ export const userHasActiveSubscription = async (email: string) => {
       emailList.push(customer.email);
     }
 
-    return emailList.concat("roger.simon96@gmail.com").concat("jasongora8499@gmail.com").includes(email);
+    return emailList.concat("roger.simon96@gmail.com").includes(email);
   } catch (error) {
     console.error("Error:", error);
     return false; // Return false in case of an error
